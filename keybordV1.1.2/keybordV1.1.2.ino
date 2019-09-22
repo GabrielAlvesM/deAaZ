@@ -1,5 +1,5 @@
 //Trabalho teclado de brinquedo
-//Gabriel Alves 26/08/19 - CODIGO CONTEM LIGAÇÕES E FUNÇÃO DOS LEDs E SENSORES, E SOM
+//Gabriel Alves 26/08/19 - CODIGO CONTEM APENAS LIGAÇÕES E FUNÇÃO DOS LEDs E SENSORES
 
 //MP3 PLAYER
 #include <DFRobotDFPlayerMini.h> // Inclui a biblioteca DFRobotDFPlayerMini.h
@@ -14,7 +14,6 @@ DFRobotDFPlayerMini myDFPlayer;
 // Fixa os parâmetros iniciais
 int equalizacao = 0;
 
-//LEDs E SENSORES
 int A_Led = 2;
 int A_Btn = 3;
 int A_Value = 0;
@@ -111,17 +110,17 @@ int X_Led = 48;
 int X_Btn = 49;
 int X_Value = 0;
 
-int Y_Led = 50;
-int Y_Btn = 51;
+int Y_Led = 50; //52
+int Y_Btn = 51; //53
 int Y_Value = 0;
 
-int Z_Led = 52;
-int Z_Btn = 53;
+int Z_Led = 52; //50
+int Z_Btn = 53; //51
 int Z_Value = 0;
 
-void setup()
-{
+//
 
+void setup() {
   //Comunicacao serial com o modulo
   mySoftwareSerial.begin(9600);
 
@@ -134,7 +133,6 @@ void setup()
   myDFPlayer.EQ(0);           // Equalizacao normal
   // Normal, Pop, Rock, Jazz, Classic e Bass representada pelos valores 0, 1, 2, 3, 4 e 5 respectivamente.
 
-  //LEDS E SENSORES
   pinMode(A_Led, OUTPUT);
   pinMode(A_Btn, INPUT);
 
@@ -216,8 +214,7 @@ void setup()
   pinMode(Z_Led, OUTPUT);
   pinMode(Z_Btn, INPUT);
 }
-void loop()
-{
+void loop() {
   LetraA();
   LetraB();
   LetraC();
@@ -244,457 +241,269 @@ void loop()
   LetraX();
   LetraY();
   LetraZ();
-  complete();
 }
 
-void LetraA()
-{
+void LetraA() {
   A_Value = digitalRead(A_Btn);
 
-  if (A_Value == HIGH)
-  {
+  if (A_Value == HIGH) {
     digitalWrite(A_Led, HIGH);
     myDFPlayer.play(1);
-    delay(2000);
+    delay(1000);
     myDFPlayer.stop();
-  }
-  else
-  {
+  } else {
     digitalWrite(A_Led, LOW);
   }
 }
 
-void LetraB()
-{
+void LetraB() {
   B_Value = digitalRead(B_Btn);
 
-  if (B_Value == HIGH)
-  {
+  if (B_Value == HIGH) {
     digitalWrite(B_Led, HIGH);
-    myDFPlayer.play(2);
-    delay(2000);
-    myDFPlayer.stop();
-  }
-  else
-  {
+  } else {
     digitalWrite(B_Led, LOW);
   }
 }
 
-void LetraC()
-{
+void LetraC() {
   C_Value = digitalRead(C_Btn);
 
-  if (C_Value == HIGH)
-  {
+  if (C_Value == HIGH) {
     digitalWrite(C_Led, HIGH);
-    myDFPlayer.play(3);
-    delay(2000);
-    myDFPlayer.stop();
-  }
-  else
-  {
+  } else {
     digitalWrite(C_Led, LOW);
   }
 }
 
-void LetraD()
-{
+void LetraD() {
   D_Value = digitalRead(D_Btn);
 
-  if (D_Value == HIGH)
-  {
+  if (D_Value == HIGH) {
     digitalWrite(D_Led, HIGH);
-    myDFPlayer.play(4);
-    delay(2000);
-    myDFPlayer.stop();
-  }
-  else
-  {
+  } else {
     digitalWrite(D_Led, LOW);
   }
 }
 
-void LetraE()
-{
+void LetraE() {
   E_Value = digitalRead(E_Btn);
 
-  if (E_Value == HIGH)
-  {
+  if (E_Value == HIGH) {
     digitalWrite(E_Led, HIGH);
-    myDFPlayer.play(5);
-    delay(2000);
-    myDFPlayer.stop();
-  }
-  else
-  {
+  } else {
     digitalWrite(E_Led, LOW);
   }
 }
 
-void LetraF()
-{
+void LetraF() {
   F_Value = digitalRead(F_Btn);
 
-  if (F_Value == HIGH)
-  {
+  if (F_Value == HIGH) {
     digitalWrite(F_Led, HIGH);
-    //myDFPlayer.play(6);
-    delay(2000);
-    myDFPlayer.stop();
-  }
-  else
-  {
+  } else {
     digitalWrite(F_Led, LOW);
   }
 }
 
-void LetraG()
-{
+void LetraG() {
   G_Value = digitalRead(G_Btn);
 
-  if (G_Value == HIGH)
-  {
+  if (G_Value == HIGH) {
     digitalWrite(G_Led, HIGH);
-    myDFPlayer.play(7);
-    delay(2000);
-    myDFPlayer.stop();
-  }
-  else
-  {
+  } else {
     digitalWrite(G_Led, LOW);
   }
 }
 
-void LetraH()
-{
+void LetraH() {
   H_Value = digitalRead(H_Btn);
 
-  if (H_Value == HIGH)
-  {
+  if (H_Value == HIGH) {
     digitalWrite(H_Led, HIGH);
-    myDFPlayer.play(8);
-    delay(2000);
-    myDFPlayer.stop();
-  }
-  else
-  {
+  } else {
     digitalWrite(H_Led, LOW);
   }
 }
 
-void LetraI()
-{
+void LetraI() {
   I_Value = digitalRead(I_Btn);
 
-  if (I_Value == HIGH)
-  {
+  if (I_Value == HIGH) {
     digitalWrite(I_Led, HIGH);
-    myDFPlayer.play(9);
-    delay(2000);
-    myDFPlayer.stop();
-  }
-  else
-  {
+  } else {
     digitalWrite(I_Led, LOW);
   }
 }
 
-void LetraJ()
-{
+void LetraJ() {
   J_Value = digitalRead(J_Btn);
 
-  if (J_Value == HIGH)
-  {
+  if (J_Value == HIGH) {
     digitalWrite(J_Led, HIGH);
-    myDFPlayer.play(10);
-    delay(2000);
-    myDFPlayer.stop();
-  }
-  else
-  {
+  } else {
     digitalWrite(J_Led, LOW);
   }
 }
 
-void LetraK()
-{
+void LetraK() {
   K_Value = digitalRead(K_Btn);
 
-  if (K_Value == HIGH)
-  {
+  if (K_Value == HIGH) {
     digitalWrite(K_Led, HIGH);
-    myDFPlayer.play(11);
-    delay(2000);
-    myDFPlayer.stop();
-  }
-  else
-  {
+  } else {
     digitalWrite(K_Led, LOW);
   }
 }
 
-void LetraL()
-{
+void LetraL() {
   L_Value = digitalRead(L_Btn);
 
-  if (L_Value == HIGH)
-  {
+  if (L_Value == HIGH) {
     digitalWrite(L_Led, HIGH);
-    myDFPlayer.play(12);
-    delay(2000);
-    myDFPlayer.stop();
-  }
-  else
-  {
+  } else {
     digitalWrite(L_Led, LOW);
   }
 }
 
-void LetraM()
-{
+void LetraM() {
   M_Value = digitalRead(M_Btn);
 
-  if (M_Value == HIGH)
-  {
+  if (M_Value == HIGH) {
     digitalWrite(M_Led, HIGH);
-    //myDFPlayer.play(13);
-    delay(2000);
-    myDFPlayer.stop();
-  }
-  else
-  {
+  } else {
     digitalWrite(M_Led, LOW);
   }
 }
 
-void LetraN()
-{
+void LetraN() {
   N_Value = digitalRead(N_Btn);
 
-  if (N_Value == HIGH)
-  {
+  if (N_Value == HIGH) {
     digitalWrite(N_Led, HIGH);
-    myDFPlayer.play(14);
-    delay(2000);
-    myDFPlayer.stop();
-  }
-  else
-  {
+  } else {
     digitalWrite(N_Led, LOW);
   }
 }
 
-void LetraO()
-{
+void LetraO() {
   O_Value = digitalRead(O_Btn);
 
-  if (O_Value == HIGH)
-  {
+  if (O_Value == HIGH) {
     digitalWrite(O_Led, HIGH);
-    myDFPlayer.play(15);
-    delay(2000);
-    myDFPlayer.stop();
-  }
-  else
-  {
+  } else {
     digitalWrite(O_Led, LOW);
   }
 }
 
-void LetraP()
-{
+void LetraP() {
   P_Value = digitalRead(P_Btn);
 
-  if (P_Value == HIGH)
-  {
+  if (P_Value == HIGH) {
     digitalWrite(P_Led, HIGH);
-    myDFPlayer.play(16);
-    delay(2000);
-    myDFPlayer.stop();
-  }
-  else
-  {
+  } else {
     digitalWrite(P_Led, LOW);
   }
 }
 
-void LetraQ()
-{
+void LetraQ() {
   Q_Value = digitalRead(Q_Btn);
 
-  if (Q_Value == HIGH)
-  {
+  if (Q_Value == HIGH) {
     digitalWrite(Q_Led, HIGH);
-    myDFPlayer.play(17);
-    delay(2000);
-    myDFPlayer.stop();
-  }
-  else
-  {
+  } else {
     digitalWrite(Q_Led, LOW);
   }
 }
 
-void LetraR()
-{
+void LetraR() {
   R_Value = digitalRead(R_Btn);
 
-  if (R_Value == HIGH)
-  {
+  if (R_Value == HIGH) {
     digitalWrite(R_Led, HIGH);
-    myDFPlayer.play(18);
-    delay(2000);
-    myDFPlayer.stop();
-  }
-  else
-  {
+  } else {
     digitalWrite(R_Led, LOW);
   }
 }
 
-void LetraS()
-{
+void LetraS() {
   S_Value = digitalRead(S_Btn);
 
-  if (S_Value == HIGH)
-  {
+  if (S_Value == HIGH) {
     digitalWrite(S_Led, HIGH);
-    myDFPlayer.play(19);
-    delay(2000);
-    myDFPlayer.stop();
-  }
-  else
-  {
+  } else {
     digitalWrite(S_Led, LOW);
   }
 }
 
-void LetraT()
-{
+void LetraT() {
   T_Value = digitalRead(T_Btn);
 
-  if (T_Value == HIGH)
-  {
+  if (T_Value == HIGH) {
     digitalWrite(T_Led, HIGH);
-    myDFPlayer.play(20);
-    delay(2000);
-    myDFPlayer.stop();
-  }
-  else
-  {
+  } else {
     digitalWrite(T_Led, LOW);
   }
 }
 
-void LetraU()
-{
+void LetraU() {
   U_Value = digitalRead(U_Btn);
 
-  if (U_Value == HIGH)
-  {
+  if (U_Value == HIGH) {
     digitalWrite(U_Led, HIGH);
-    myDFPlayer.play(21);
-    delay(2000);
-    myDFPlayer.stop();
-  }
-  else
-  {
+  } else {
     digitalWrite(U_Led, LOW);
   }
 }
 
-void LetraV()
-{
+void LetraV() {
   V_Value = digitalRead(V_Btn);
 
-  if (V_Value == HIGH)
-  {
+  if (V_Value == HIGH) {
     digitalWrite(V_Led, HIGH);
-    myDFPlayer.play(22);
-    delay(2000);
-    myDFPlayer.stop();
-  }
-  else
-  {
+  } else {
     digitalWrite(V_Led, LOW);
   }
 }
 
-void LetraW()
-{
+void LetraW() {
   W_Value = digitalRead(W_Btn);
 
-  if (W_Value == HIGH)
-  {
+  if (W_Value == HIGH) {
     digitalWrite(W_Led, HIGH);
-    myDFPlayer.play(23);
-    delay(2000);
-    myDFPlayer.stop();
-  }
-  else
-  {
+  } else {
     digitalWrite(W_Led, LOW);
   }
 }
 
-void LetraX()
-{
+void LetraX() {
   X_Value = digitalRead(X_Btn);
 
-  if (X_Value == HIGH)
-  {
+  if (X_Value == HIGH) {
     digitalWrite(X_Led, HIGH);
-    myDFPlayer.play(24);
-    delay(2000);
-    myDFPlayer.stop();
-  }
-  else
-  {
+  } else {
     digitalWrite(X_Led, LOW);
   }
 }
 
-void LetraY()
-{
-  Y_Value = digitalRead(Y_Btn);
+//PORTAR ESTÃO TOCRADAS FISICAMENTE E O Y LE O VALOR DO Z 
 
-  if (Y_Value == HIGH)
-  {
+void LetraY() {
+  Z_Value = digitalRead(Z_Btn);
+
+  if (Z_Value == HIGH) {
     digitalWrite(Y_Led, HIGH);
-    myDFPlayer.play(25);
-    delay(2000);
-    myDFPlayer.stop();
-  }
-  else
-  {
+  } else {
     digitalWrite(Y_Led, LOW);
   }
 }
 
-void LetraZ()
-{
-  Z_Value = digitalRead(Z_Btn);
+void LetraZ() {
+  Y_Value = digitalRead(Y_Btn);
 
-  if (Z_Value == HIGH)
-  {
+  if (Y_Value == HIGH) {
     digitalWrite(Z_Led, HIGH);
-    myDFPlayer.play(26);
-    delay(2000);
-    myDFPlayer.stop();
-  }
-  else
-  {
+  } else {
     digitalWrite(Z_Led, LOW);
-  }
-}
-
-void complete()
-{
-  if (Z_Led == HIGH && A_Led == HIGH)
-  {
-    myDFPlayer.play(27); // Da play na música parabens
-    delay(2000);         //Tempo de 2s
-    myDFPlayer.stop();   //Pausa
   }
 }

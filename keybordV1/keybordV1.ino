@@ -220,10 +220,10 @@ void loop(){
 void LetraA(){
     A_Value = digitalRead(A_Btn);
     
-    if (A_Value == LOW){
-      digitalWrite(A_Led, LOW);
-    }else {
+    if (A_Value == HIGH){
       digitalWrite(A_Led, HIGH);
+    }else {
+      digitalWrite(A_Led, LOW);
     }
 }
 
