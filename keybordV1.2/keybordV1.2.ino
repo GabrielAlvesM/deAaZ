@@ -1,20 +1,8 @@
-//Trabalho teclado de brinquedo
-//Gabriel Alves 26/08/19 - CODIGO CONTEM LIGAÇÕES E FUNÇÃO DOS LEDs E SENSORES, E SOM
-
-//MP3 PLAYER
-#include <DFRobotDFPlayerMini.h> // Inclui a biblioteca DFRobotDFPlayerMini.h
-#include <SoftwareSerial.h>      // Inclui a biblioteca SoftwareSerial.h
-
-//Inicia a comunicação serial nos pinos 10 (RX) e 11(TX)
+#include <DFRobotDFPlayerMini.h>
+#include <SoftwareSerial.h>
 SoftwareSerial mySoftwareSerial(0, 1);
-
-// Declara o módulo DFPlayer
 DFRobotDFPlayerMini myDFPlayer;
-
-// Fixa os parâmetros iniciais
 int equalizacao = 0;
-
-//LEDs E SENSORES
 int A_Led = 2;
 int A_Btn = 3;
 int A_Value = 0;
@@ -34,7 +22,7 @@ int D_Value = 0;
 int E_Led = 10;
 int E_Btn = 11;
 int E_Value = 0;
-
+  
 int F_Led = 12;
 int F_Btn = 13;
 int F_Value = 0;
@@ -121,20 +109,12 @@ int Z_Value = 0;
 
 void setup()
 {
-
-  //Comunicacao serial com o modulo
   mySoftwareSerial.begin(9600);
-
-  // Inicializa as funções do módulo DFPlayer
   myDFPlayer.begin(mySoftwareSerial);
+  myDFPlayer.setTimeOut(500);
+  myDFPlayer.volume(30);
+  myDFPlayer.EQ(0);
 
-  //Configurações iniciais
-  myDFPlayer.setTimeOut(500); //Timeout serial 500ms
-  myDFPlayer.volume(15);      // Volume 30 (1-31)
-  myDFPlayer.EQ(0);           // Equalizacao normal
-  // Normal, Pop, Rock, Jazz, Classic e Bass representada pelos valores 0, 1, 2, 3, 4 e 5 respectivamente.
-
-  //LEDS E SENSORES
   pinMode(A_Led, OUTPUT);
   pinMode(A_Btn, INPUT);
 
@@ -255,11 +235,10 @@ void LetraA()
   {
     digitalWrite(A_Led, HIGH);
     myDFPlayer.play(1);
-    delay(2000);
-    myDFPlayer.stop();
   }
   else
   {
+    myDFPlayer.stop();
     digitalWrite(A_Led, LOW);
   }
 }
@@ -272,11 +251,11 @@ void LetraB()
   {
     digitalWrite(B_Led, HIGH);
     myDFPlayer.play(2);
-    delay(2000);
-    myDFPlayer.stop();
+
   }
   else
   {
+    myDFPlayer.stop();
     digitalWrite(B_Led, LOW);
   }
 }
@@ -289,11 +268,11 @@ void LetraC()
   {
     digitalWrite(C_Led, HIGH);
     myDFPlayer.play(3);
-    delay(2000);
-    myDFPlayer.stop();
+
   }
   else
   {
+    myDFPlayer.stop();
     digitalWrite(C_Led, LOW);
   }
 }
@@ -306,11 +285,11 @@ void LetraD()
   {
     digitalWrite(D_Led, HIGH);
     myDFPlayer.play(4);
-    delay(2000);
-    myDFPlayer.stop();
+
   }
   else
   {
+    myDFPlayer.stop();
     digitalWrite(D_Led, LOW);
   }
 }
@@ -323,11 +302,10 @@ void LetraE()
   {
     digitalWrite(E_Led, HIGH);
     myDFPlayer.play(5);
-    delay(2000);
-    myDFPlayer.stop();
   }
   else
   {
+    myDFPlayer.stop();
     digitalWrite(E_Led, LOW);
   }
 }
@@ -339,12 +317,12 @@ void LetraF()
   if (F_Value == HIGH)
   {
     digitalWrite(F_Led, HIGH);
-    //myDFPlayer.play(6);
-    delay(2000);
-    myDFPlayer.stop();
+    myDFPlayer.play(6);
+
   }
   else
   {
+    myDFPlayer.stop();
     digitalWrite(F_Led, LOW);
   }
 }
@@ -357,11 +335,11 @@ void LetraG()
   {
     digitalWrite(G_Led, HIGH);
     myDFPlayer.play(7);
-    delay(2000);
-    myDFPlayer.stop();
+
   }
   else
   {
+    myDFPlayer.stop();
     digitalWrite(G_Led, LOW);
   }
 }
@@ -374,11 +352,11 @@ void LetraH()
   {
     digitalWrite(H_Led, HIGH);
     myDFPlayer.play(8);
-    delay(2000);
-    myDFPlayer.stop();
+
   }
   else
   {
+    myDFPlayer.stop();
     digitalWrite(H_Led, LOW);
   }
 }
@@ -391,11 +369,11 @@ void LetraI()
   {
     digitalWrite(I_Led, HIGH);
     myDFPlayer.play(9);
-    delay(2000);
-    myDFPlayer.stop();
+
   }
   else
   {
+    myDFPlayer.stop();
     digitalWrite(I_Led, LOW);
   }
 }
@@ -408,11 +386,11 @@ void LetraJ()
   {
     digitalWrite(J_Led, HIGH);
     myDFPlayer.play(10);
-    delay(2000);
-    myDFPlayer.stop();
+
   }
   else
   {
+    myDFPlayer.stop();
     digitalWrite(J_Led, LOW);
   }
 }
@@ -425,11 +403,11 @@ void LetraK()
   {
     digitalWrite(K_Led, HIGH);
     myDFPlayer.play(11);
-    delay(2000);
-    myDFPlayer.stop();
+
   }
   else
   {
+    myDFPlayer.stop();
     digitalWrite(K_Led, LOW);
   }
 }
@@ -442,11 +420,11 @@ void LetraL()
   {
     digitalWrite(L_Led, HIGH);
     myDFPlayer.play(12);
-    delay(2000);
-    myDFPlayer.stop();
+
   }
   else
   {
+    myDFPlayer.stop();
     digitalWrite(L_Led, LOW);
   }
 }
@@ -458,12 +436,12 @@ void LetraM()
   if (M_Value == HIGH)
   {
     digitalWrite(M_Led, HIGH);
-    //myDFPlayer.play(13);
-    delay(2000);
-    myDFPlayer.stop();
+    myDFPlayer.play(13);
+
   }
   else
   {
+    myDFPlayer.stop();
     digitalWrite(M_Led, LOW);
   }
 }
@@ -476,11 +454,11 @@ void LetraN()
   {
     digitalWrite(N_Led, HIGH);
     myDFPlayer.play(14);
-    delay(2000);
-    myDFPlayer.stop();
+
   }
   else
   {
+    myDFPlayer.stop();
     digitalWrite(N_Led, LOW);
   }
 }
@@ -493,11 +471,11 @@ void LetraO()
   {
     digitalWrite(O_Led, HIGH);
     myDFPlayer.play(15);
-    delay(2000);
-    myDFPlayer.stop();
+
   }
   else
   {
+    myDFPlayer.stop();
     digitalWrite(O_Led, LOW);
   }
 }
@@ -510,8 +488,7 @@ void LetraP()
   {
     digitalWrite(P_Led, HIGH);
     myDFPlayer.play(16);
-    delay(2000);
-    myDFPlayer.stop();
+
   }
   else
   {
@@ -544,11 +521,11 @@ void LetraR()
   {
     digitalWrite(R_Led, HIGH);
     myDFPlayer.play(18);
-    delay(2000);
-    myDFPlayer.stop();
+
   }
   else
   {
+    myDFPlayer.stop();
     digitalWrite(R_Led, LOW);
   }
 }
@@ -561,11 +538,11 @@ void LetraS()
   {
     digitalWrite(S_Led, HIGH);
     myDFPlayer.play(19);
-    delay(2000);
-    myDFPlayer.stop();
+
   }
   else
   {
+    myDFPlayer.stop();
     digitalWrite(S_Led, LOW);
   }
 }
@@ -578,11 +555,11 @@ void LetraT()
   {
     digitalWrite(T_Led, HIGH);
     myDFPlayer.play(20);
-    delay(2000);
-    myDFPlayer.stop();
+
   }
   else
   {
+    myDFPlayer.stop();
     digitalWrite(T_Led, LOW);
   }
 }
@@ -595,11 +572,11 @@ void LetraU()
   {
     digitalWrite(U_Led, HIGH);
     myDFPlayer.play(21);
-    delay(2000);
-    myDFPlayer.stop();
+
   }
   else
   {
+    myDFPlayer.stop();
     digitalWrite(U_Led, LOW);
   }
 }
@@ -612,11 +589,11 @@ void LetraV()
   {
     digitalWrite(V_Led, HIGH);
     myDFPlayer.play(22);
-    delay(2000);
-    myDFPlayer.stop();
+
   }
   else
   {
+    myDFPlayer.stop();
     digitalWrite(V_Led, LOW);
   }
 }
@@ -629,11 +606,11 @@ void LetraW()
   {
     digitalWrite(W_Led, HIGH);
     myDFPlayer.play(23);
-    delay(2000);
-    myDFPlayer.stop();
+
   }
   else
   {
+    myDFPlayer.stop();
     digitalWrite(W_Led, LOW);
   }
 }
@@ -646,45 +623,31 @@ void LetraX()
   {
     digitalWrite(X_Led, HIGH);
     myDFPlayer.play(24);
-    delay(2000);
-    myDFPlayer.stop();
+
   }
   else
   {
+    myDFPlayer.stop();
     digitalWrite(X_Led, LOW);
   }
 }
+//PORTAR ESTÃO TOCRADAS FISICAMENTE E O Y LE O VALOR DO Z
+void LetraY() {
+  Z_Value = digitalRead(Z_Btn);
 
-void LetraY()
-{
-  Y_Value = digitalRead(Y_Btn);
-
-  if (Y_Value == HIGH)
-  {
+  if (Z_Value == HIGH) {
     digitalWrite(Y_Led, HIGH);
-    myDFPlayer.play(25);
-    delay(2000);
-    myDFPlayer.stop();
-  }
-  else
-  {
+  } else {
     digitalWrite(Y_Led, LOW);
   }
 }
 
-void LetraZ()
-{
-  Z_Value = digitalRead(Z_Btn);
+void LetraZ() {
+  Y_Value = digitalRead(Y_Btn);
 
-  if (Z_Value == HIGH)
-  {
+  if (Y_Value == HIGH) {
     digitalWrite(Z_Led, HIGH);
-    myDFPlayer.play(26);
-    delay(2000);
-    myDFPlayer.stop();
-  }
-  else
-  {
+  } else {
     digitalWrite(Z_Led, LOW);
   }
 }
@@ -693,8 +656,8 @@ void complete()
 {
   if (Z_Led == HIGH && A_Led == HIGH)
   {
-    myDFPlayer.play(27); // Da play na música parabens
-    delay(2000);         //Tempo de 2s
-    myDFPlayer.stop();   //Pausa
+    myDFPlayer.play(27);
+    //delay(2000);
+    myDFPlayer.stop();
   }
 }
